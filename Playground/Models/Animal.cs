@@ -12,24 +12,24 @@ namespace Playground.Models
     public class Animal
     {
         #region Instance Fields
-        private string _animalRace;
+        private string _species;
         private string _imagePath;
         private string _description;
         #endregion
 
         public Animal(){}
 
-        public Animal(string race, string imagePath, string description)
+        public Animal(string species, string imagePath, string description)
         {
-            _animalRace = race;
+            _species = species;
             _imagePath = imagePath;
             _description = description;
         }
 
-        public string AnimalRace
+        public string Species
         {
-            get => _animalRace;
-            set => _animalRace = value;
+            get => _species;
+            set => _species = value;
         }
 
         public string ImagePath

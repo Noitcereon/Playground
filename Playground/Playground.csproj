@@ -134,6 +134,15 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\elephant.jpg" />
+    <Content Include="Assets\Gecko.jpg" />
+    <Content Include="Assets\Hippopotamus.jpg" />
+    <Content Include="Assets\Kiwi.jpg" />
+    <Content Include="Assets\lions.jpg" />
+    <Content Include="Assets\Meerkats.jpg" />
+    <Content Include="Assets\pandas.jpg" />
+    <Content Include="Assets\Red Panda.jpg" />
+    <Content Include="Assets\wolves.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

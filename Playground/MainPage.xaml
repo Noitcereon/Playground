@@ -5,8 +5,12 @@
     xmlns:local="using:Playground"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:Playground.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <model:MainViewModel/>
+    </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
@@ -39,19 +43,23 @@
             <TextBlock Text="A BIG HEADLINE!" FontSize="46" TextAlignment="Center"></TextBlock>
         </StackPanel>
 
-        <!-- TODO: Add ItemSource ListView -->
-        <ListView Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="8"
-                  >
-            <ListViewItem Width="500" HorizontalAlignment="Left">
-               <Button>
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Image Source="{Binding AnimalPictures}"></Image>
-                        </ControlTemplate>
-                    </Button.Template>
-               </Button> 
-            </ListViewItem>
-        </ListView>
+        <GridView Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="8"
+                  ItemsSource="{Binding Animals}">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Species}"></TextBlock>
+                        <Button Click="AnimalDetailsPage_OnClick">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image Source="{Binding ImagePath}" MaxWidth="500" Margin="10"></Image>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
     <!-- Main Grid -->
 </Page>
