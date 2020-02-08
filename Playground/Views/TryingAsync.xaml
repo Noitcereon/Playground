@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="Playground.Views.TryingAsync"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Playground.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Playground.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+    <Page.DataContext>
+        <viewModels:AsyncViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="400"></Setter>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="Background" Value="Green"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+    </Page.Resources>
+
+
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!-- 5 coloumns -->
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- 5 rows -->
+        <StackPanel Width="Auto" Orientation="Horizontal" HorizontalAlignment="Center" Background="Beige" Padding="5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5">
+            <Button Margin="0" Content="Run Sync" Command="{Binding RunSyncCommand}"></Button>
+            <Button Content="Run Async" Command="{Binding RunAsyncCommand}" Background="DodgerBlue"></Button>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="4">
+            <Border BorderThickness="0,2,0,0" BorderBrush="Black" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Results:" FontSize="42" Foreground="Black"></TextBlock>
+                    <TextBlock Text="Elapsed ms: "></TextBlock>
+                    <TextBlock Text="{Binding ElapsedMs}"></TextBlock>
+                </StackPanel>
+
+            </Border>
+            <TextBlock Width="Auto" Text="{Binding IterationCounter}" Height="Auto" MinHeight="600">
+            </TextBlock>
+        </StackPanel>
+        <TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Name, Mode=TwoWay}"></TextBox>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text ="{Binding Name}"></TextBlock>
+    </Grid>
+</Page>

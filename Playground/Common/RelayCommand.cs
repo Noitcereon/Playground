@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Playground.Common
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         private Action _action;
 
