@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace CapitaliseLettersInString
@@ -22,8 +23,18 @@ namespace CapitaliseLettersInString
     {
         public void Start()
         {
+            string text = ToJadenCase("How can mirrors be real if our eyes aren't real");
             
+            Console.WriteLine(text);
+            string test = ToJadenCase(Console.ReadLine());
+            Console.WriteLine(test);
         }
 
+        public static string ToJadenCase(string text)
+        {
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+
+            return textInfo.ToTitleCase(text);
+        }
     }
 }
